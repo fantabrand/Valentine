@@ -106,6 +106,13 @@
 <audio id="music" src="thousand_years.mp3" preload="auto"></audio>
 
   <script>
+    document.addEventListener("click", () => {
+  const music = document.getElementById("music");
+  music.play().then(() => {
+    music.pause();
+    music.currentTime = 0;
+  }).catch(()=>{});
+}, { once: true });
     // Runaway NO button
     const noBtn = document.getElementById("no");
 
@@ -121,7 +128,9 @@
       document.querySelector(".card").remove();
 
       // Play music
-      document.getElementById("music").play();
+      const music = document.getElementById("music");
+music.currentTime = 0;
+music.play();;
 
       // Message
       const msg = document.createElement("h1");
@@ -157,6 +166,6 @@
       setTimeout(() => fw.remove(), 1000);
     }
   </script>
-
+  
 </body>
 </html>
